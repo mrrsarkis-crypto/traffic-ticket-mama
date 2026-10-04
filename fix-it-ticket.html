@@ -69,6 +69,22 @@
   <li><a href="/about">About</a></li>
         <li><a href="/assistant">Assistant</a></li>
         <li><a href="/#contact">Contact</a></li>
+        <li class="lang-li">
+    <div class="lang-dropdown">
+      <button class="lang-btn" aria-label="Select language" aria-haspopup="true" aria-expanded="false">🌐 EN ▾</button>
+      <div class="lang-menu" role="menu">
+        <a role="menuitem" href="/" aria-current="true">English</a>
+        <a role="menuitem" href="/es/">Español</a>
+        <a role="menuitem" href="/ar/">العربية</a>
+        <a role="menuitem" href="/fa/">فارسی</a>
+        <a role="menuitem" href="/hy/">Հայերեն</a>
+        <a role="menuitem" href="/ko/">한국어</a>
+        <a role="menuitem" href="/tl/">Tagalog</a>
+        <a role="menuitem" href="/vi/">Tiếng Việt</a>
+        <a role="menuitem" href="/zh/">中文</a>
+      </div>
+    </div>
+        </li>
         <li><a class="cta" href="/#scan">Free Ticket Scan</a></li>
       </ul>
       </div>
@@ -76,7 +92,7 @@
   </nav>
 </header>
 
-<main class="subpage">
+<main id="main" class="subpage">
   <section class="sub-hero">
     <div class="wrap">
       <div class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/services">Services</a> &rsaquo; Fix-It Tickets — Correctable Violations</div>
@@ -183,5 +199,30 @@ v.addEventListener('click',function(){var o=l.classList.toggle('open');v.classLi
 if ('serviceWorker' in navigator) { window.addEventListener('load', function(){ navigator.serviceWorker.register('/sw.js').catch(function(){}); }); }
 </script>
 
-<script src="/nav.js" defer></script></body>
+<script src="/nav.js" defer></script><style>
+.lang-dropdown{position:relative;z-index:10}
+.lang-btn{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#fff;font-size:.9rem;font-weight:600;padding:12px 18px;min-height:44px;border-radius:999px;cursor:pointer}
+.lang-btn:hover{background:rgba(255,255,255,.2)}
+.lang-menu{display:none;position:absolute;top:calc(100% + 8px);right:0;background:#3d1a12;border:1px solid rgba(255,255,255,.15);border-radius:12px;min-width:160px;box-shadow:0 12px 40px rgba(0,0,0,.4);overflow:hidden}
+.lang-menu.open{display:block}
+.lang-menu a{display:block;color:#e8e2f5;text-decoration:none;padding:10px 18px;font-size:.9rem}
+.lang-menu a:hover{background:rgba(255,255,255,.08);color:#fbbf24}
+
+/* Swoosh + reveal (bulk pass) */
+.nav-links a{position:relative}
+.nav-links a::after{content:"";position:absolute;left:13px;right:13px;bottom:6px;height:2px;background:linear-gradient(90deg,#f59e0b,transparent);transform:scaleX(0);transform-origin:left;transition:transform .3s ease}
+.nav-links a:hover::after{transform:scaleX(1)}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}.nav-links a::after{display:none}}
+@media(max-width:860px){.nav-links a::after{display:none}}
+</style>
+<script>
+(function(){var btn=document.querySelector('.lang-btn'),menu=document.querySelector('.lang-menu');if(!btn||!menu)return;btn.addEventListener('click',function(e){e.stopPropagation();menu.classList.toggle('open')});document.addEventListener('click',function(){menu.classList.remove('open')});})();
+</script>
+<script>
+/* Scroll reveal (bulk pass) */
+(function(){var r=document.querySelectorAll('.reveal');if(!r.length)return;if('IntersectionObserver' in window){var io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('visible');io.unobserve(x.target)}})},{threshold:.12});r.forEach(function(el){io.observe(el)})}else{r.forEach(function(el){el.classList.add('visible')})}})();
+</script>
+</body>
 </html>
