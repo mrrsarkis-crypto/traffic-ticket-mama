@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+    <meta name="description" content="Payment confirmed — your traffic ticket case is being prepared. Track your case status with Traffic Ticket Mama.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Payment Received — Traffic Ticket Mama</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: #f6f1e7; color: #2e2a24; min-height: 100vh;
+    display: flex; align-items: center; justify-content: center; padding: 24px 16px;
+  }
+  .card {
+    background: #fffdf8; border-radius: 20px; max-width: 560px; width: 100%;
+    padding: 40px 32px; text-align: center;
+    box-shadow: 0 18px 50px rgba(120, 96, 60, .14);
+    border-top: 6px solid #b07a3f;
+  }
+  .check {
+    width: 76px; height: 76px; border-radius: 50%;
+    background: #e8f7ee; color: #1c9c4c;
+    font-size: 38px; line-height: 76px; margin: 0 auto 20px;
+  }
+  h1 { color: #2e2a24; font-size: 28px; letter-spacing: -.02em; margin-bottom: 8px; }
+  .sub { color: #7a6e5c; font-size: 15px; line-height: 1.55; margin-bottom: 24px; }
+  .tracking {
+    background: #f6f1e7; border: 1px dashed #c9b896; border-radius: 12px;
+    padding: 16px; margin-bottom: 24px;
+  }
+  .tracking .label { font-size: 11px; letter-spacing: .12em; color: #9a8c72; text-transform: uppercase; margin-bottom: 6px; }
+  .tracking .code { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 22px; font-weight: 700; color: #8a5f2b; }
+  .steps { text-align: left; margin-bottom: 28px; }
+  .step { display: flex; gap: 14px; margin-bottom: 16px; align-items: flex-start; }
+  .step:last-child { margin-bottom: 0; }
+  .num {
+    flex: 0 0 30px; width: 30px; height: 30px; border-radius: 50%;
+    background: #8a5f2b; color: #fffdf8; font-weight: 800; font-size: 14px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .step p { font-size: 14px; line-height: 1.55; color: #5c5245; }
+  .step p strong { color: #2e2a24; }
+  .note { font-size: 13px; color: #9a8c72; line-height: 1.6; margin-bottom: 24px; }
+  .btn {
+    display: inline-block; background: #b07a3f; color: #fffdf8;
+    font-weight: 800; font-size: 15px; text-decoration: none;
+    padding: 14px 34px; border-radius: 12px;
+    box-shadow: 0 8px 22px rgba(138, 95, 43, .3);
+  }
+  .fineprint { margin-top: 22px; font-size: 11.5px; color: #b3a78f; line-height: 1.6; }
+  .review-ask { margin-top: 28px; padding-top: 24px; border-top: 1px solid #e7ddc8; }
+  .review-ask p { font-size: 14px; color: #5c5245; line-height: 1.55; margin-bottom: 14px; }
+  .review-ask p strong { color: #2e2a24; }
+  .btn-review { background: #1a73e8; box-shadow: 0 8px 22px rgba(26, 115, 232, .3); }
+</style>
+<link rel="stylesheet" href="/stone-theme.css?v=7">
+</head>
+<body>
+  <div class="card">
+    <div class="check">✓</div>
+    <h1>Payment received — thank you!</h1>
+    <p class="sub">Your case has been submitted and your payment went through.
+       Keep your tracking code below for your records.</p>
+
+    <div class="tracking" id="trackingBox" style="display:none">
+      <div class="label">Your tracking code</div>
+      <div class="code" id="trackingCode">—</div>
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <div class="num">1</div>
+        <p><strong>We review your citation.</strong> A specialist verifies your ticket
+           details and court information, usually within one business day.</p>
+      </div>
+      <div class="step">
+        <div class="num">2</div>
+        <p><strong>We prepare your defense documents.</strong> Everything is drafted
+           from the information you submitted — nothing is filed without review.</p>
+      </div>
+      <div class="step">
+        <div class="num">3</div>
+        <p><strong>We contact you.</strong> You'll hear from us at the email and phone
+           number you provided before anything moves forward.</p>
+      </div>
+    </div>
+
+    <p class="note">A receipt for your payment was sent by our payment processor.
+       Questions? Email <strong>mama@utt-d.com</strong> and include
+       your tracking code.</p>
+
+    <a class="btn" href="/">Back to homepage</a>
+
+    <div class="review-ask">
+      <p><strong>Happy with how easy that was?</strong><br>
+      Your Google review helps other California drivers find us.</p>
+      <a class="btn btn-review" href="https://g.page/r/CQI4epDjn4dgECE/review" target="_blank" rel="noopener">★ Leave a Google review</a>
+    </div>
+
+    <p class="fineprint">Traffic Ticket Mama provides document preparation and case
+       tracking. This is not a law firm and no court outcome is guaranteed.</p>
+  </div>
+
+<script>
+/* ============================================================
+   GOOGLE ADS PURCHASE CONVERSION TRACKING — Traffic Ticket Mama
+   ------------------------------------------------------------
+   Fires the Website Purchase conversion to Traffic Ticket Mama's
+   own Google Ads account once its conversion IDs are added below.
+   Until then this is a safe no-op.
+   ------------------------------------------------------------
+   HOW IT WORKS: after Stripe redirects here, this script asks
+   our own API whether this tracking code is actually paid
+   (status = payment_complete). The conversion fires ONLY for
+   real payments — never for page refreshes or unpaid visits.
+   Each tracking code fires at most once per browser.
+   ============================================================ */
+var PURCHASE_DESTINATIONS = [
+  // TODO: add Traffic Ticket Mama's own AW ID + purchase label:
+  // { id: 'AW-XXXXXXXXXX', label: 'PURCHASE_LABEL' },
+];
+
+(function () {
+  function validDestination(d) {
+    return d && /^AW-\d+$/.test(d.id) &&
+           typeof d.label === 'string' && d.label.length >= 8;
+  }
+  var destinations = PURCHASE_DESTINATIONS.filter(validDestination);
+
+  function getCode() {
+    try {
+      var q = new URLSearchParams(window.location.search);
+      return q.get('tracking') || q.get('t') || '';
+    } catch (e) { return ''; }
+  }
+
+  var code = getCode();
+  if (code) {
+    try {
+      document.getElementById('trackingCode').textContent = code;
+      document.getElementById('trackingBox').style.display = 'block';
+    } catch (e) {}
+  }
+
+  // No code, or no valid destinations -> page works, no tracking.
+  if (!code || destinations.length === 0) return;
+  // Already fired for this code in this browser -> don't double count.
+  try {
+    if (sessionStorage.getItem('utt_conv_' + code)) return;
+  } catch (e) {}
+
+  // Load Google tag, then verify payment before firing.
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
+  window.gtag('js', new Date());
+  destinations.forEach(function (d) { window.gtag('config', d.id); });
+  var s = document.createElement('script');
+  s.async = true;
+  s.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(destinations[0].id);
+  document.head.appendChild(s);
+
+  fetch('/api/cases/' + encodeURIComponent(code), { credentials: 'same-origin' })
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (data) {
+      if (!data || data.status !== 'payment_complete') return; // not paid -> no conversion
+      try { sessionStorage.setItem('utt_conv_' + code, '1'); } catch (e) {}
+      destinations.forEach(function (d) {
+        window.gtag('event', 'conversion', {
+          'send_to': d.id + '/' + d.label,
+          'value': 199.00,
+          'currency': 'USD',
+          'transaction_id': code
+        });
+      });
+    })
+    .catch(function () { /* API unreachable -> page still works, no conversion */ });
+})();
+</script>
+</body>
+</html>

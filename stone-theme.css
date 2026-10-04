@@ -1,0 +1,127 @@
+/* stone-theme.css — Magical Fairy reskin for Traffic Ticket Mama
+ * Overrides the navy/amber palette with deep purple, lavender & gold.
+ * Also declutters: hides topbar, AI strips, and hero badge clutter.
+ * Load AFTER style.css: <link rel="stylesheet" href="/stone-theme.css?v=7">
+ */
+:root{
+  --fairy-purple:#4C1D95; --fairy-purple-dark:#1E0A3B; --fairy-purple-mid:#2E1065;
+  --fairy-gold:#D4AF37; --fairy-gold-dark:#A8842C; --fairy-gold-light:#F3E5B8;
+  --fairy-lavender:#F3EFFC; --fairy-lavender-dark:#E4D9F7;
+  --navy:#2E1065; --navy-dark:#1E0A3B; --navy-mid:#4C1D95;
+  --amber:#D4AF37; --amber-dark:#A8842C; --amber-ink:#7A5F1E;
+  --ink:#1E0A3B; --cloud:#F3EFFC; --line:#D9CFF0; --muted:#6B5B8E;
+}
+
+/* page base */
+body{background:#F3EFFC !important;color:#1E0A3B !important;}
+
+/* ---------- declutter: hide noisy header/middle elements ---------- */
+.topbar{display:none !important;}
+.ai-strip-top{display:none !important;}
+.ai-strip{display:none !important;}
+section.ai-strip{display:none !important;}
+.hero-ai-chips{display:none !important;}
+.hero-badges{display:none !important;}
+#utt-contrast-fix{display:none !important;}
+
+/* ---------- header: light lavender, not navy ---------- */
+.site-header, header.site-header{background:#FBFAFE !important;border-bottom:1px solid #D9CFF0 !important;}
+.nav{background:#FBFAFE !important;}
+.nav a, .nav-links a{color:#1E0A3B !important;}
+.nav a:hover{color:#4C1D95 !important;}
+.site-header::after{background:linear-gradient(90deg,#4C1D95 0 33.333%,#2E1065 33.333% 66.666%,#D4AF37 66.666% 100%) !important;}
+
+/* ---------- hero: purple gradient, gold accents ---------- */
+.hero,.sub-hero{background:linear-gradient(180deg,#2E1065,#1E0A3B) !important;}
+.hero h1,.hero h2,.sub-hero h1{color:#FFFFFF !important;}
+.hero p,.hero .muted,.sub-hero p.sub,.sub-hero .breadcrumb,.sub-hero .breadcrumb a{color:#D9CFF0 !important;}
+.sub-hero .eyebrow{color:#D4AF37 !important;}
+
+/* ---------- buttons: purple + gold ---------- */
+.btn-amber,.btn-primary,.utt-scan-pay-btn,.btn[href*="assistant"]{
+  background:#4C1D95 !important;border-color:#4C1D95 !important;color:#fff !important;}
+.btn-amber:hover,.btn-primary:hover{filter:brightness(1.15);}
+.btn-gold{background:#D4AF37 !important;border-color:#D4AF37 !important;color:#1E0A3B !important;}
+
+/* ---------- cards & sections: lavender paper ---------- */
+.card,.doc-card,.ast-card,.step-card{background:#FBFAFE !important;border-color:#D9CFF0 !important;}
+.section-light{background:#F3EFFC !important;}
+.section-dark{background:#1E0A3B !important;}
+.section-dark h2,.section-dark h3{color:#FFFFFF !important;}
+.section-dark p{color:#D9CFF0 !important;}
+.strip-guarantee{background:#E4D9F7 !important;}
+
+/* kill harsh navy panels still using raw hex */
+[style*="041C4D"],[style*="10233F"]{background-color:#1E0A3B !important;}
+
+/* footer: deep purple */
+footer{background:#1E0A3B !important;color:#D9CFF0 !important;}
+footer a{color:#D4AF37 !important;}
+.footer-legal{background:#150826 !important;color:#A89AC8 !important;}
+
+/* ---------- CTA band: purple gradient, gold text accents ---------- */
+.section-cta{background:linear-gradient(135deg,#4C1D95,#2E1065) !important;color:#FFFFFF !important;}
+.section-cta h1,.section-cta h2,.section-cta h3{color:#FFFFFF !important;}
+.section-cta p,.section-cta .muted{color:#D9CFF0 !important;}
+
+/* step numbers: purple discs with gold numerals */
+.step-num{background:#4C1D95 !important;color:#D4AF37 !important;}
+
+/* ---------- nav dropdowns: lavender panels ---------- */
+.nav-links li.drop > ul{background:#FBFAFE !important;border:1px solid #D9CFF0 !important;box-shadow:0 20px 40px rgba(30,10,59,.16) !important;}
+.nav-links li.drop ul a{color:#1E0A3B !important;}
+.nav-links li.drop ul a:hover{color:#4C1D95 !important;background:#F3EFFC !important;}
+/* dropdown caret: dark chevron on the light nav */
+.nav-links li.drop > a::after{border-right-color:#1E0A3B !important;border-bottom-color:#1E0A3B !important;}
+/* mobile menu + hamburger: visible on the light nav */
+.nav-toggle-bar{background:#1E0A3B !important;}
+@media(max-width:860px){
+  .nav-links{background:#FBFAFE !important;box-shadow:0 14px 30px rgba(30,10,59,.18) !important;}
+  .nav-links a{color:#1E0A3B !important;border-bottom-color:#D9CFF0 !important;}
+  .nav-links a:hover{background:#F3EFFC !important;color:#4C1D95 !important;}
+  .nav-links li.drop > ul a{border-bottom-color:#E4D9F7 !important;}
+}
+
+/* ---------- COLOR LOCKDOWN: fairy palette everywhere, blue never returns ----------
+   Page stylesheets (case.css, pages.css) load AFTER this file and reintroduce blue.
+   Everything below keeps the fairy palette authoritative regardless of load order. */
+
+/* remap the case-center palette variables to fairy */
+:root{
+  --case-blue:#4C1D95 !important;
+  --case-navy:#1E0A3B !important;
+  --case-orange:#D4AF37 !important;
+  --case-paper:#F3EFFC !important;
+  --case-line:#D9CFF0 !important;
+  --case-ink:#1E0A3B !important;
+  --case-muted:#6B5B8E !important;
+}
+
+/* case hero: deep purple gradient with white text */
+.case-hero{background:linear-gradient(180deg,#2E1065,#1E0A3B) !important;color:#FFFFFF !important;}
+.case-hero h1{color:#FFFFFF !important;}
+.case-lead{color:#D9CFF0 !important;}
+.case-lookup{background:rgba(251,250,254,.95) !important;border-color:#D9CFF0 !important;box-shadow:0 24px 70px rgba(30,10,59,.18) !important;}
+.case-lookup label{color:#1E0A3B !important;}
+.case-status.error{color:#C0392B !important;}
+.case-status.ok{color:#3f7a4e !important;}
+.case-status.loading{color:#4C1D95 !important;}
+
+/* case cards & accents: lavender tints */
+.case-primary{background:linear-gradient(145deg,#FBFAFE,#F3EFFC) !important;}
+.case-pill{background:#E4D9F7 !important;}
+.case-progress{background:#E4D9F7 !important;}
+.workflow-status.review{background:#E4D9F7 !important;}
+.workflow-meta div{background:#FBFAFE !important;}
+.case-timeline-item:not(:last-child)::after{background:#D9CFF0 !important;}
+.document-vault{border-color:#D9CFF0 !important;background:#FBFAFE !important;}
+.vault-icon{background:#E4D9F7 !important;}
+.case-remember{accent-color:#4C1D95 !important;color:#6B5B8E !important;}
+.case-privacy p{color:#6B5B8E !important;}
+
+/* case help band: deep purple gradient; white text stays readable */
+.case-help{background:linear-gradient(120deg,#1E0A3B,#4C1D95) !important;}
+
+/* blue links from pages.css -> fairy purple */
+.prose a,.ticket-card a,.ch-tile a,.tiny-legal a{color:#4C1D95 !important;}
+.article-card h2 a:hover{color:#D4AF37 !important;}
