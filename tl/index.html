@@ -177,24 +177,52 @@
 .social-icon[href="#"]{opacity:.5;cursor:default;}
 .social-icon[href="#"]:hover{background:rgba(255,255,255,.1);transform:none;}
 </style>
+<style>
+.lang-dropdown{position:relative;z-index:60}
+.lang-btn{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#fff;font-size:.85rem;font-weight:600;padding:12px 18px;min-height:44px;border-radius:999px;cursor:pointer;white-space:nowrap;font-family:inherit}
+.lang-btn:hover{background:rgba(255,255,255,.22)}
+.lang-menu{display:none;position:absolute;top:calc(100% + 8px);right:0;background:#3d1a12;border:1px solid rgba(255,255,255,.15);border-radius:12px;min-width:170px;box-shadow:0 12px 40px rgba(0,0,0,.45);overflow:hidden;z-index:61}
+.lang-menu.open{display:block}
+.lang-menu a{display:block;color:#f0eaf8;text-decoration:none;padding:10px 18px;font-size:.9rem}
+.lang-menu a:hover{background:rgba(255,255,255,.08);color:#fbbf24}
+.lang-menu a[aria-current="true"]{color:#fbbf24;font-weight:700}
+[dir="rtl"] .lang-menu{left:0;right:auto}
+@media(max-width:760px){.lang-btn{padding:7px 12px;font-size:.8rem}.lang-menu{min-width:150px}}
+</style>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to main content</a>
 <header class="cine-hero" id="top">
   <div class="cine-bg"></div>
   <div class="cine-overlay"></div>
   <div class="cine-glitter" aria-hidden="true"></div>
-  <nav class="cine-nav">
+  <nav class="cine-nav" aria-label="Primary">
     <a href="/tl/" class="cine-brand">
       <img src="/assets/logo-mama.webp" alt="Traffic Ticket Mama" width="48" height="48">
       <span>Traffic Ticket <em>Fairy</em></span>
     </a>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
     <div class="cine-links">
       <a href="#how">Paano Gumagana</a>
       <a href="#pricing">Presyo</a>
       <a href="#faq">FAQ</a>
       <a href="/contact">Makipag-ugnayan</a>
     </div>
-    <a href="/assistant" class="cine-cta">Libreng Scan</a>
+        <div class="lang-dropdown">
+      <button class="lang-btn" aria-label="Select language" aria-haspopup="true" aria-expanded="false">🌐 TL ▾</button>
+      <div class="lang-menu" role="menu">
+        <a role="menuitem" href="/">English</a>
+        <a role="menuitem" href="/es/">Español</a>
+        <a role="menuitem" href="/zh/">中文</a>
+        <a role="menuitem" href="/vi/">Tiếng Việt</a>
+        <a role="menuitem" href="/ko/">한국어</a>
+        <a role="menuitem" href="/tl/" aria-current="true">Tagalog</a>
+        <a role="menuitem" href="/hy/">Հայերեն</a>
+        <a role="menuitem" href="/fa/">فارسی</a>
+        <a role="menuitem" href="/ar/">العربية</a>
+      </div>
+    </div>
+<a href="/assistant" class="cine-cta">Libreng Scan</a>
   </nav>
   <div class="cine-titles">
     <p class="cine-eyebrow"><span id="daypart">Magandang gabi</span> — dumating na ang iyong diwata ✨</p>
@@ -208,7 +236,7 @@
   </div>
 </header>
 
-<main>
+<main id="main">
 <section class="ff-section dark" id="pricing">
   <div class="wrap">
     <p class="eyebrow">✨</p>
@@ -222,7 +250,7 @@
   </div>
 </section>
 
-<section class="ff-final">
+<section class="ff-final reveal">
   <div class="wrap">
     <div class="cine-actions">
       <a href="/assistant" class="btn-cine-primary">✨ I-scan Ang Ticket Ko — Libre</a>
@@ -338,9 +366,56 @@ body{font-family:Inter,system-ui,sans-serif;color:var(--ink);line-height:1.6}
 .pedestal-stats span{color:#8f86a8;font-size:.9rem}
 @media(max-width:768px){.pedestal-grid{grid-template-columns:1fr}
 {.cine-links{display:none}.footer-grid{grid-template-columns:1fr}.price-card.hot{transform:none}}
+
+/* ===== MOBILE NAV + SWOOSH (bulk responsive pass) ===== */
+.nav-toggle{display:none;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);border-radius:10px;padding:10px 12px;cursor:pointer;min-height:44px;min-width:44px}
+.nav-toggle span{display:block;width:22px;height:2px;background:#fff;margin:5px 0;border-radius:2px;transition:transform .25s,opacity .25s}
+.nav-toggle[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-toggle[aria-expanded="true"] span:nth-child(2){opacity:0}
+.nav-toggle[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+/* Swoosh underline on nav links */
+.cine-links a{position:relative}
+.cine-links a::after{content:"";position:absolute;left:0;bottom:-4px;height:2px;width:100%;background:linear-gradient(90deg,var(--gold,#f59e0b),transparent);transform:scaleX(0);transform-origin:left;transition:transform .3s ease}
+.cine-links a:hover::after{transform:scaleX(1)}
+/* Scroll reveal */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}.cine-links a::after{display:none}.cine-bg{animation:none!important}}
+@media(max-width:860px){
+.cine-nav{padding:14px 18px;gap:12px}
+.nav-toggle{display:block;order:3}
+.cine-brand{font-size:1rem}
+.cine-brand img{width:40px;height:40px}
+.cine-links{display:none;position:absolute;top:100%;left:0;right:0;background:rgba(15,8,30,.97);backdrop-filter:blur(20px);flex-direction:column;align-items:stretch;padding:16px 24px 24px;gap:4px;border-bottom:1px solid rgba(251,191,36,.15);z-index:100}
+.cine-links.open{display:flex}
+.cine-links a{padding:14px 8px;font-size:1.05rem;border-bottom:1px solid rgba(255,255,255,.06)}
+.cine-links a::after{display:none}
+.cine-cta{padding:10px 18px;font-size:.9rem;white-space:nowrap}
+.lang-btn{padding:10px 14px;font-size:.85rem;min-height:44px}
+}
+@media(max-width:380px){
+.cine-nav{padding:12px 14px}
+.cine-brand span{font-size:.9rem}
+.cine-cta{display:none}
+}
+
+@media(max-width:560px){
+.cine-title{font-size:clamp(2.2rem,11vw,3rem)!important;line-height:1.08}
+.cine-sub{font-size:1.05rem!important}
+.cine-actions{flex-direction:column;align-items:stretch}
+.cine-actions a{width:100%;text-align:center;box-sizing:border-box}
+.cine-titles{padding:32px 20px}
+}
 </style>
 <script>
 (function(){var h=new Date().getHours(),g=h<12?"Magandang umaga":h<17?"Magandang hapon":"Magandang gabi";var el=document.getElementById('daypart');if(el)el.textContent=g;})();
+</script>
+<script>
+(function(){var b=document.querySelector('.lang-btn'),m=document.querySelector('.lang-menu');if(!b||!m)return;b.addEventListener('click',function(e){e.stopPropagation();var o=m.classList.toggle('open');b.setAttribute('aria-expanded',o?'true':'false')});document.addEventListener('click',function(){m.classList.remove('open');b.setAttribute('aria-expanded','false')});document.addEventListener('keydown',function(e){if(e.key==='Escape'){m.classList.remove('open');b.setAttribute('aria-expanded','false')}})})();
+</script>
+<script>
+/* Mobile nav toggle + scroll reveal (bulk responsive pass) */
+(function(){var t=document.querySelector('.cine-nav .nav-toggle'),l=document.querySelector('.cine-nav .cine-links');if(t&&l){t.addEventListener('click',function(){var o=l.classList.toggle('open');t.setAttribute('aria-expanded',o);t.setAttribute('aria-label',o?'Close menu':'Open menu')});l.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){l.classList.remove('open');t.setAttribute('aria-expanded','false')})})}var r=document.querySelectorAll('.reveal');if('IntersectionObserver' in window&&r.length){var io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('visible');io.unobserve(x.target)}})},{threshold:.12});r.forEach(function(el){io.observe(el)})}else{r.forEach(function(el){el.classList.add('visible')})}})();
 </script>
 </body>
 </html>
