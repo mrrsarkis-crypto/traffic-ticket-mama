@@ -1,0 +1,92 @@
+/*
+  Link: </trust-responsive.css>; rel=stylesheet
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  Cross-Origin-Opener-Policy: same-origin
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+
+/
+  Cache-Control: public, max-age=0, must-revalidate
+
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.css
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.webp
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.woff2
+  Cache-Control: public, max-age=31536000, immutable
+
+/favicon.png
+  Cache-Control: public, max-age=31536000, immutable
+
+/apple-touch-icon.png
+  Cache-Control: public, max-age=31536000, immutable
+
+/manifest.webmanifest
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+/.well-known/oauth-authorization-server
+  Content-Type: application/json; charset=utf-8
+
+/.well-known/oauth-protected-resource
+  Content-Type: application/json; charset=utf-8
+/assistant
+  Cache-Control: no-store, no-cache, must-revalidate
+
+/scanner-browser-fallback.js
+  Cache-Control: no-store, no-cache, must-revalidate
+
+/scanner-ui.js
+  Cache-Control: no-store, no-cache, must-revalidate
+
+/sw.js
+  Cache-Control: no-store, no-cache, must-revalidate
+
+/assistant.js
+  Cache-Control: no-store, no-cache, must-revalidate
+
+/scanner-preprocess.js
+  Cache-Control: no-store, no-cache, must-revalidate
+
+/worldclass-tbd.js
+  Cache-Control: no-store, no-cache, must-revalidate
+
+/scanner-client.js
+  Cache-Control: no-store, no-cache, must-revalidate
+
+/scan-guard.js
+  Cache-Control: no-store, no-cache, must-revalidate
+
+/scan-progress.js
+  Cache-Control: no-store, no-cache, must-revalidate
+
+/scan-pay.js
+  Cache-Control: no-store, no-cache, must-revalidate
+
+/scan-stage.js
+  Cache-Control: no-store, no-cache, must-revalidate
+
+/score-ui.js
+  Cache-Control: no-store, no-cache, must-revalidate
+
+/scanner-upload.js
+  Cache-Control: no-store, no-cache, must-revalidate
+
+/assistant.css
+  Cache-Control: no-store, no-cache, must-revalidate
+
+/consent-banner.js
+  Cache-Control: public, max-age=31536000, immutable
+
+/service-view-tracking.js
+  Cache-Control: public, max-age=31536000, immutable
+
+/trust-badge.js
+  Cache-Control: public, max-age=31536000, immutable
