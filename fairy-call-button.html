@@ -1,0 +1,117 @@
+<!-- Traffic Ticket Mama - Floating Call Button Component
+     Include this before </body> on any page. The fairy flies in,
+     hovers with a sparkle trail, and opens the call prompt on tap. -->
+<style>
+.fairy-call-wrap {
+  position: fixed; bottom: 24px; right: 24px; z-index: 9999;
+  width: 84px; height: 84px; cursor: pointer;
+  filter: drop-shadow(0 4px 18px rgba(190,120,255,.45));
+  animation: fairyFloat 4s ease-in-out infinite;
+  -webkit-tap-highlight-color: transparent;
+}
+@keyframes fairyFloat {
+  0%,100% { transform: translateY(0) rotate(-3deg); }
+  50% { transform: translateY(-14px) rotate(3deg); }
+}
+.fairy-call-wrap svg { width: 100%; height: 100%; display: block; }
+.fairy-call-wrap .wing { transform-origin: 50% 60%; animation: wingFlap .55s ease-in-out infinite alternate; }
+.fairy-call-wrap .wing.right { animation-delay: .1s; }
+@keyframes wingFlap { from { transform: scaleX(1);} to { transform: scaleX(.55);} }
+.fairy-call-wrap .sparkle { animation: sparkleTwinkle 1.6s ease-in-out infinite; transform-origin: center; transform-box: fill-box; }
+.fairy-call-wrap .sparkle.s2 { animation-delay: .5s; }
+.fairy-call-wrap .sparkle.s3 { animation-delay: 1s; }
+@keyframes sparkleTwinkle { 0%,100% { opacity: .15; transform: scale(.6);} 50% { opacity: 1; transform: scale(1.15);} }
+.fairy-call-prompt {
+  position: fixed; bottom: 120px; right: 20px; z-index: 10000;
+  background: linear-gradient(135deg,#2b1a4e,#4a2a8a);
+  color: #fff; border-radius: 18px; padding: 18px 20px; max-width: 270px;
+  box-shadow: 0 12px 40px rgba(90,40,180,.5); border: 1px solid rgba(220,180,255,.35);
+  font-family: system-ui,-apple-system,sans-serif; display: none;
+  animation: promptPop .3s ease-out;
+}
+.fairy-call-prompt.show { display: block; }
+@keyframes promptPop { from { opacity: 0; transform: translateY(10px) scale(.95);} to { opacity: 1; transform: none;} }
+.fairy-call-prompt h4 { margin: 0 0 6px; font-size: 16px; }
+.fairy-call-prompt p { margin: 0 0 14px; font-size: 13px; opacity: .85; line-height: 1.45; }
+.fairy-call-prompt .fairy-call-btn {
+  display: block; text-align: center; text-decoration: none;
+  background: linear-gradient(135deg,#c084fc,#8b5cf6); color: #fff;
+  font-weight: 700; font-size: 15px; padding: 12px; border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(168,85,247,.5);
+}
+.fairy-call-prompt .fairy-close {
+  position: absolute; top: 8px; right: 12px; background: none; border: none;
+  color: rgba(255,255,255,.6); font-size: 18px; cursor: pointer; padding: 4px;
+}
+.fairy-call-prompt .fairy-or { text-align: center; font-size: 12px; opacity: .7; margin: 10px 0 6px; }
+.fairy-call-prompt .fairy-sms {
+  display: block; text-align: center; font-size: 13px; color: #d8b4fe; text-decoration: none;
+}
+@media (max-width: 480px) {
+  .fairy-call-wrap { width: 72px; height: 72px; bottom: 18px; right: 18px; }
+  .fairy-call-prompt { bottom: 104px; right: 14px; }
+}
+</style>
+
+<div class="fairy-call-wrap" id="fairyCallBtn" role="button" aria-label="Talk to the Traffic Ticket Mama" tabindex="0">
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <!-- glow -->
+  <circle cx="50" cy="50" r="44" fill="url(#fairyGlow)" opacity="0.55"/>
+  <!-- wings -->
+  <g class="wing left">
+    <ellipse cx="30" cy="42" rx="16" ry="24" fill="#e9d5ff" opacity="0.75" transform="rotate(-28 30 42)"/>
+    <ellipse cx="28" cy="40" rx="9" ry="15" fill="#f5f3ff" opacity="0.9" transform="rotate(-28 28 40)"/>
+  </g>
+  <g class="wing right">
+    <ellipse cx="70" cy="42" rx="16" ry="24" fill="#e9d5ff" opacity="0.75" transform="rotate(28 70 42)"/>
+    <ellipse cx="72" cy="40" rx="9" ry="15" fill="#f5f3ff" opacity="0.9" transform="rotate(28 72 40)"/>
+  </g>
+  <!-- body -->
+  <ellipse cx="50" cy="58" rx="9" ry="16" fill="#c4b5fd"/>
+  <!-- head -->
+  <circle cx="50" cy="36" r="11" fill="#f5d0fe"/>
+  <!-- hair -->
+  <path d="M39 32 Q40 20 50 20 Q60 20 61 32 Q58 26 50 26 Q42 26 39 32Z" fill="#a78bfa"/>
+  <!-- face -->
+  <circle cx="46" cy="36" r="1.6" fill="#4c1d95"/>
+  <circle cx="54" cy="36" r="1.6" fill="#4c1d95"/>
+  <path d="M46 41 Q50 44 54 41" stroke="#4c1d95" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+  <!-- wand -->
+  <line x1="58" y1="56" x2="72" y2="44" stroke="#fbbf24" stroke-width="2.5" stroke-linecap="round"/>
+  <g class="sparkle s1"><path d="M72 38 l1.8 4.2 4.2 1.8 -4.2 1.8 -1.8 4.2 -1.8 -4.2 -4.2 -1.8 4.2 -1.8Z" fill="#fef08a"/></g>
+  <g class="sparkle s2"><circle cx="24" cy="66" r="2.4" fill="#fef08a"/></g>
+  <g class="sparkle s3"><circle cx="78" cy="68" r="1.8" fill="#fef08a"/></g>
+  <defs>
+    <radialGradient id="fairyGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#c084fc" stop-opacity=".8"/>
+      <stop offset="100%" stop-color="#c084fc" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+</svg>
+</div>
+
+<div class="fairy-call-prompt" id="fairyCallPrompt">
+  <button class="fairy-close" id="fairyClose" aria-label="Close">&times;</button>
+  <h4>🧚 Talk to Mama</h4>
+  <p>Our AI specialist can answer your questions and help with your ticket right now.</p>
+  <a class="fairy-call-btn" href="tel:+18332931091">📞 Call Now</a>
+  <div class="fairy-or">or</div>
+  <a class="fairy-sms" href="sms:+18332931091">💬 Text us instead</a>
+</div>
+
+<script>
+(function(){
+  var btn = document.getElementById('fairyCallBtn');
+  var prompt = document.getElementById('fairyCallPrompt');
+  var close = document.getElementById('fairyClose');
+  function toggle(e){ if(e) e.stopPropagation(); prompt.classList.toggle('show'); }
+  btn.addEventListener('click', toggle);
+  btn.addEventListener('keydown', function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); toggle(); }});
+  close.addEventListener('click', function(e){ e.stopPropagation(); prompt.classList.remove('show'); });
+  document.addEventListener('click', function(e){
+    if(prompt.classList.contains('show') && !prompt.contains(e.target) && e.target!==btn && !btn.contains(e.target)){
+      prompt.classList.remove('show');
+    }
+  });
+})();
+</script>
