@@ -1,5 +1,9 @@
 <!-- Traffic Ticket Mama - Floating Call Button Component
-     Include this before </body> on any page. The fairy flies in,
+     Include this before <script>
+/* Scroll reveal (bulk pass) */
+(function(){var r=document.querySelectorAll('.reveal');if(!r.length)return;if('IntersectionObserver' in window){var io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('visible');io.unobserve(x.target)}})},{threshold:.12});r.forEach(function(el){io.observe(el)})}else{r.forEach(function(el){el.classList.add('visible')})}})();
+</script>
+</body> on any page. The fairy flies in,
      hovers with a sparkle trail, and opens the call prompt on tap. -->
 <style>
 .fairy-call-wrap {
@@ -51,6 +55,15 @@
   .fairy-call-wrap { width: 72px; height: 72px; bottom: 18px; right: 18px; }
   .fairy-call-prompt { bottom: 104px; right: 14px; }
 }
+
+/* Swoosh + reveal (bulk pass) */
+.nav-links a{position:relative}
+.nav-links a::after{content:"";position:absolute;left:13px;right:13px;bottom:6px;height:2px;background:linear-gradient(90deg,#f59e0b,transparent);transform:scaleX(0);transform-origin:left;transition:transform .3s ease}
+.nav-links a:hover::after{transform:scaleX(1)}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}.nav-links a::after{display:none}}
+@media(max-width:860px){.nav-links a::after{display:none}}
 </style>
 
 <div class="fairy-call-wrap" id="fairyCallBtn" role="button" aria-label="Talk to the Traffic Ticket Mama" tabindex="0">
@@ -94,9 +107,9 @@
   <button class="fairy-close" id="fairyClose" aria-label="Close">&times;</button>
   <h4>🧚 Talk to Mama</h4>
   <p>Our AI specialist can answer your questions and help with your ticket right now.</p>
-  <a class="fairy-call-btn" href="tel:+18332931091">📞 Call Now</a>
+  <a class="fairy-call-btn" href="tel:+14244506387">📞 Call Now</a>
   <div class="fairy-or">or</div>
-  <a class="fairy-sms" href="sms:+18332931091">💬 Text us instead</a>
+  <a class="fairy-sms" href="sms:+14244506387">💬 Text us instead</a>
 </div>
 
 <script>
