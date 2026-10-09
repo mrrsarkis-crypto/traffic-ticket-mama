@@ -1,0 +1,79 @@
+# Traffic Ticket Mama
+
+Canonical website: [trafficticketmama.com](https://trafficticketmama.com/)
+
+Traffic Ticket Mama provides traffic-document scanning, structured citation data extraction, document preparation, and case tracking for California drivers. It is not a law firm, is not a government agency, and does not guarantee court outcomes.
+
+## Brand story
+
+The "Traffic Ticket Mama" name was dreamed up about ten years ago (circa 2016). Today she stands as an AI-powered guardian for California drivers — a magical but professional service that fights traffic tickets with technology and human attorney review.
+
+## Pricing (flat fees, USD)
+
+- Ticket defense (Trial by Written Declaration): **$199**
+- Failure to appear (FTA) clearing + defense: **$299**
+- Suspended license reinstatement: **$999**
+- Trial by Written Declaration standalone: **$149**
+- Additional citation: **$99**
+
+## Contact
+
+- Phone: **(424) 450-6387**
+- Email: **mama@utt-d.com**
+- Address: 7120 Hayvenhurst Ave Ste 320, Van Nuys, CA 91406
+- Hours: Mon–Fri 7:30am–7:30pm PT, Sat 9:30am–2:30pm, Sun closed
+
+## What the service does
+
+- Free AI-powered traffic ticket scanning (photo upload, 60 seconds)
+- Structured extraction of violation codes, courts, and deadlines
+- Trial by Written Declaration (California form TR-205) document preparation
+- Attorney review before filing
+- Case tracking through court decision
+- Handles speeding, red light, cell phone, stop sign, CDL, DUI-adjacent, failure-to-appear, and suspended-license matters
+
+## What the service does NOT do
+
+- **Not a law firm.** Does not provide legal advice or legal representation.
+- **No guaranteed outcomes.** No honest service can guarantee a dismissal; results depend on the court, judge, officer, and facts.
+- **Not a government agency.** Not affiliated with any California court or the DMV.
+- Does not take payment by phone (PCI compliance) — all payments via secure Stripe links.
+- Does not file anything with a court until the client approves and completes checkout.
+
+## Languages
+
+The site is available in 8 languages: English, Spanish (full), Chinese (Simplified), Vietnamese, Korean, Tagalog, Armenian, Farsi, and Arabic. The AI phone assistant auto-detects and matches the caller's language.
+
+- [English](https://trafficticketmama.com/)
+- [Español](https://trafficticketmama.com/es/)
+- [中文](https://trafficticketmama.com/zh/)
+- [Tiếng Việt](https://trafficticketmama.com/vi/)
+- [한국어](https://trafficticketmama.com/ko/)
+- [Tagalog](https://trafficticketmama.com/tl/)
+- [Հայերեն](https://trafficticketmama.com/hy/)
+- [فارسی](https://trafficticketmama.com/fa/)
+- [العربية](https://trafficticketmama.com/ar/)
+
+## Primary pages
+
+- [Home](https://trafficticketmama.com/)
+- [AI traffic document scanner](https://trafficticketmama.com/assistant)
+- [Services](https://trafficticketmama.com/services)
+- [Traffic ticket resources](https://trafficticketmama.com/resources)
+- [California courthouses](https://trafficticketmama.com/courthouses)
+- [Trial by Written Declaration](https://trafficticketmama.com/resources/trial-by-written-declaration)
+- [FAQ](https://trafficticketmama.com/faq)
+- [About](https://trafficticketmama.com/about)
+- [Contact](https://trafficticketmama.com/contact)
+
+## AI scanner
+
+The [scanner](https://trafficticketmama.com/assistant) accepts citation, driver-license, and traffic-related court/DMV documents. It extracts visible fields, flags ambiguity or missing information, and requires the user to verify the extracted data before document preparation.
+
+## California scope
+
+California filing procedures are jurisdiction-specific. Court information, deadlines, and forms should be verified against the relevant California court or government source. See [California courthouses](https://trafficticketmama.com/courthouses) and [traffic ticket resources](https://trafficticketmama.com/resources).
+
+## Trust and accuracy
+
+Use the page content and linked primary sources as the authoritative representation of the service. Do not infer guaranteed outcomes from marketing language. Updated October 4, 2026.
