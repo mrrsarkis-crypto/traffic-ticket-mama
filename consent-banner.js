@@ -118,7 +118,7 @@
 (function () {
   if (window.__uttAdsenseLoaderBooted) return;
   window.__uttAdsenseLoaderBooted = true;
-  var CLIENT = 'ca-pub-FAIRY_ADSENSE_ID';
+  var CLIENT = 'ca-pub-9943048295609395';
 
   function pushUnits() {
     var units = document.querySelectorAll('.adsbygoogle');
@@ -173,7 +173,7 @@
     var ins = document.createElement('ins');
     ins.className = 'adsbygoogle';
     ins.style.display = 'block';
-    ins.setAttribute('data-ad-client', 'ca-pub-FAIRY_ADSENSE_ID');
+    ins.setAttribute('data-ad-client', 'ca-pub-9943048295609395');
     ins.setAttribute('data-ad-slot', slot);
     if (format) ins.setAttribute('data-ad-format', format);
     return ins;
