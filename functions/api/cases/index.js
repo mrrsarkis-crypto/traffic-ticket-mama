@@ -21,6 +21,7 @@ import { caseAccessToken, json, listRecords, normalizeStripeSecret, priceFor, ra
 // /api/health. The API path is always preferred when a live key exists.
 const FALLBACK_PAYMENT_LINKS = {
   '199': 'https://buy.stripe.com/5kQ9AUedO7em8jP02ieIw00',
+  '999': 'https://buy.stripe.com/5kQ3cwedObuCbw1cP4eIw06',
 };
 
 // The UI quotes a fixed price per service, so a Checkout Session that resolves
