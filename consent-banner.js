@@ -277,3 +277,15 @@
   if (document.readyState === 'complete') scheduleGoogleTagLibrary();
   else window.addEventListener('load', scheduleGoogleTagLibrary, { once: true });
 })();
+
+// Brand favicon + spin, loaded site-wide: point the tab icon at the brand
+// favicon.svg and start the spinning-favicon script.
+(function () {
+  var l = document.querySelector('link[rel="icon"]');
+  if (!l) { l = document.createElement('link'); l.rel = 'icon'; document.head.appendChild(l); }
+  l.setAttribute('type', 'image/svg+xml');
+  l.setAttribute('href', '/favicon.svg');
+  var s = document.createElement('script');
+  s.src = '/favicon-spin.js';
+  document.head.appendChild(s);
+})();
