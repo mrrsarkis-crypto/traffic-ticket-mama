@@ -222,15 +222,15 @@
         <a role="menuitem" href="/ar/">العربية</a>
       </div>
     </div>
-<a href="/assistant" class="cine-cta">免费扫描</a>
+<a href="tel:+17024191477" class="cine-cta">📞 (702) 419-1477</a>
   </nav>
   <div class="cine-titles">
     <p class="cine-eyebrow"><span id="daypart">晚上好</span> — 您的仙子已经到来 ✨</p>
     <h1 class="cine-title">您的罚单<br><span class="gold">仙子已经到来</span></h1>
     <p class="cine-sub">拍摄您的加州交通罚单照片。我们的AI在几秒钟内发现每个潜在问题——然后我们准备您的辩护文件，并由律师审核。免费扫描，无需承诺。</p>
     <div class="cine-actions">
-      <a href="/assistant" class="btn-cine-primary">✨ 免费扫描我的罚单</a>
-      <a href="tel:+17024191477" class="btn-cine-ghost">📞 (702) 419-1477</a>
+      <a href="tel:+17024191477" class="btn-cine-primary">📞 (702) 419-1477</a>
+      <a href="/assistant" class="btn-cine-ghost">✨ 免费扫描我的罚单</a>
     </div>
     <p class="cine-trust">自2015年值得信赖 · 11年以上 · 加州58个县 · <span class="stars">★★★★★</span></p>
   </div>
@@ -253,8 +253,8 @@
 <section class="ff-final reveal">
   <div class="wrap">
     <div class="cine-actions">
-      <a href="/assistant" class="btn-cine-primary">✨ 免费扫描我的罚单</a>
-      <a href="tel:+17024191477" class="btn-cine-ghost">📞 (702) 419-1477</a>
+      <a href="tel:+17024191477" class="btn-cine-primary">📞 (702) 419-1477</a>
+      <a href="/assistant" class="btn-cine-ghost">✨ 免费扫描我的罚单</a>
     </div>
     <p style="margin-top:24px"><a href="/" style="color:#b9aecf">English</a> · <a href="/es/" style="color:#b9aecf">Español</a></p>
   </div>
@@ -417,5 +417,23 @@ body{font-family:Inter,system-ui,sans-serif;color:var(--ink);line-height:1.6}
 /* Mobile nav toggle + scroll reveal (bulk responsive pass) */
 (function(){var t=document.querySelector('.cine-nav .nav-toggle'),l=document.querySelector('.cine-nav .cine-links');if(t&&l){t.addEventListener('click',function(){var o=l.classList.toggle('open');t.setAttribute('aria-expanded',o);t.setAttribute('aria-label',o?'Close menu':'Open menu')});l.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){l.classList.remove('open');t.setAttribute('aria-expanded','false')})})}var r=document.querySelectorAll('.reveal');if('IntersectionObserver' in window&&r.length){var io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('visible');io.unobserve(x.target)}})},{threshold:.12});r.forEach(function(el){io.observe(el)})}else{r.forEach(function(el){el.classList.add('visible')})}})();
 </script>
+<style id="callfirst-css">
+.callfirst-bar{display:none}
+@media (max-width:820px){
+.callfirst-bar{display:flex;position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:9997;background:rgba(0,32,80,.97);border:1px solid rgba(255,255,255,.14);padding:8px;border-radius:17px;box-shadow:0 12px 32px rgba(0,0,0,.4)}
+.callfirst-bar a{flex:1;display:flex;align-items:center;justify-content:center;min-height:52px;border-radius:11px;background:linear-gradient(135deg,#F2A800,#FF8A00);color:#10233F;font-weight:900;font-size:16.5px;text-decoration:none;font-family:inherit;letter-spacing:.01em}
+body{padding-bottom:92px}
+}
+@media (min-width:821px){
+.topbar-phone{background:#F2A800;color:#00266F!important;padding:7px 14px;border-radius:8px;font-weight:800}
+}
+.callfirst-banner{background:linear-gradient(135deg,#00266F,#0033A0);color:#fff;border-radius:14px;padding:20px;margin:24px 0 8px;text-align:center;box-shadow:0 10px 30px rgba(0,38,111,.25)}
+.callfirst-banner p{margin:0}
+.callfirst-banner .cf-t{font-size:17px}
+.callfirst-banner .cf-t a{color:#FFC247;font-weight:800}
+.callfirst-banner .cf-btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:12px 28px;margin-top:12px;border-radius:10px;background:linear-gradient(135deg,#F2A800,#FF8A00);color:#10233F;font-weight:900;font-size:16px;text-decoration:none}
+.callfirst-banner .cf-s{font-size:13.5px;color:rgba(255,255,255,.78);margin-top:12px}
+</style>
+<div class="callfirst-bar" role="navigation" aria-label="Call us"><a href="tel:+17024191477">📞 Call (702) 419-1477</a></div>
 </body>
 </html>
