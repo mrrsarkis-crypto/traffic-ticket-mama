@@ -289,3 +289,45 @@
   s.src = '/favicon-spin.js';
   document.head.appendChild(s);
 })();
+
+/* Microsoft UET base tag (tag ID 187285081, "Muse UET — All Sites",
+   Microsoft Ads account 189379096) — appended 2026-11-01 for parity with
+   the other 12 sites. Consent model mirrors the AdSense/Google loaders
+   above: bat.js loads only after the visitor grants ad consent (stored
+   'ttfAdConsent' === 'granted', or the ttf:ad-consent event). */
+(function () {
+  var loaded = false;
+  function loadUET() {
+    if (loaded) return;
+    loaded = true;
+    window.uetq = window.uetq || [];
+    (function (w, d, t, r, u) {
+      var f, n, i;
+      w[u] = w[u] || [];
+      f = function () {
+        var o = { ti: '187285081', enableAutoSpaTracking: true };
+        o.q = w[u];
+        w[u] = new UET(o);
+        w[u].push('pageLoad');
+      };
+      n = d.createElement(t);
+      n.src = r;
+      n.async = 1;
+      n.onload = n.onreadystatechange = function () {
+        var s = this.readyState;
+        if (s && s !== 'loaded' && s !== 'complete') return;
+        f();
+        n.onload = n.onreadystatechange = null;
+      };
+      i = d.getElementsByTagName(t)[0];
+      if (i && i.parentNode) i.parentNode.insertBefore(n, i);
+      else if (d.head) d.head.appendChild(n);
+    })(window, document, 'script', '//bat.bing.com/bat.js', 'uetq');
+  }
+  try {
+    if (window.localStorage.getItem('ttfAdConsent') === 'granted') loadUET();
+  } catch (e) {}
+  window.addEventListener('ttf:ad-consent', function (ev) {
+    if (ev && ev.detail && ev.detail.state === 'granted') loadUET();
+  });
+})();
