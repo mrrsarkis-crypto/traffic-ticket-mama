@@ -29,11 +29,13 @@ export async function onRequestPost(context) {
   if (isFulfillment && payload.data && payload.data.object) {
     const session = payload.data.object;
 
-    // Only fulfill when the payment actually cleared (async methods arrive unpaid).
-    const paid =
-      session.payment_status !== 'unpaid' &&
-      session.payment_status !== 'requires_payment_method' &&
-      session.payment_status !== 'no_payment_required';
+    // Shared Stripe accounts broadcast to every endpoint. Route only this
+    // site's sessions; a valid signature alone does not establish ownership.
+    if (!sessionBelongsToSite(session, siteSource(env))) {
+      return json({ received: true, ignored: true, reason: 'different_or_unassigned_site' }, 200);
+    }
+    // Missing or unknown statuses must never authorize fulfillment.
+    const paid = session.payment_status === 'paid';
 
     if (paid) {
       const eventId = payload.id;
@@ -252,4 +254,17 @@ async function fulfillCase(env, session, trackingCode, caseData) {
 async function loadCase(env, trackingCode) {
   if (!env.CASES) return null;
   try { return await env.CASES.get('case:' + trackingCode, 'json'); } catch { return null; }
+}
+
+
+// Metadata is authoritative when present. Prefixes support the existing
+// Payment Link fallback, which carries client_reference_id but no metadata.
+export function sessionBelongsToSite(session, source) {
+  const prefixes = { mama: 'MA', amigo: 'AM' };
+  if (!prefixes[source]) return false;
+  const declared = String(session?.metadata?.source_site || '').trim().toLowerCase();
+  const reference = String(session?.client_reference_id || '').trim();
+  const prefix = reference.match(/^(MA|AM|TF)-/i)?.[1]?.toUpperCase();
+  if (declared) return declared === source && (!prefix || prefix === prefixes[source]);
+  return prefix === prefixes[source];
 }
